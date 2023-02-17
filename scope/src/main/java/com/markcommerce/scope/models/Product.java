@@ -84,4 +84,16 @@ public class Product {
         CategoryId = categoryId;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "ProductId=" + ProductId +
+                ", Name='" + Name + '\'' +
+                ", Description='" + Description + '\'' +
+                ", ImageUrl='" + ImageUrl + '\'' +
+                ", Price=" + Price +
+                ", Qty=" + Qty +
+                ", CategoryId=" + CategoryId +
+                '}';
+    }
 }

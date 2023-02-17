@@ -1,6 +1,5 @@
 package com.markcommerce.scope.controllers;
 import com.markcommerce.scope.models.Product;
-import com.markcommerce.scope.repository.CartRepo;
 import com.markcommerce.scope.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +15,7 @@ public class ProductsController {
         this.productService = productService;
     }
    @PostMapping
-   public void SaveProd(@PathVariable Product product){
+   public void SaveProd(@RequestBody Product product){
        productService.addProd(product);
    }
    @GetMapping("{name}")

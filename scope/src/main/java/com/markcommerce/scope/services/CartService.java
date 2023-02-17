@@ -1,6 +1,5 @@
 package com.markcommerce.scope.services;
 import com.markcommerce.scope.models.Cart;
-import com.markcommerce.scope.models.Category;
 import com.markcommerce.scope.repository.CartRepo;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -10,26 +9,11 @@ import java.util.Optional;
 
 @Service
 public class CartService {
-    private CartRepo cartRepo;
+    private final CartRepo cartRepo;
 
     public CartService(CartRepo cartRepo) {
         this.cartRepo = cartRepo;
     }
-    public List<Cart> findCarts(){
-        return cartRepo.findAll();
-    }
-    public void updateCart(Long cart_id, Long user_id) {
-        Cart cart = cartRepo
-                .findById(cart_id).orElseThrow(
-                        ()->new IllegalStateException
-                                ("cart with id"+ cart_id + "does not exist"));
-        if(cart_id !=null && user_id != null && user_id >0
-                && !Objects.equals(cart.getId(), cart_id));
-        {
-            cart.setUserId(user_id);
-        }
-    }
-
     public void addCart(Cart cart) {
         Optional<Cart> cartOptional = cartRepo.findById(cart.getId());
         if (cartOptional.isPresent()){
@@ -38,8 +22,30 @@ public class CartService {
         cartRepo.save(cart);
         System.out.println(cart);
     }
-
+    public List<Cart> findCarts(){
+        return cartRepo.findAll();
+    }
     public Optional<Cart> getCartByName(String name) {
         return cartRepo.findByName(name);
+
+    }
+    public void updateCart(Long cart_id, Long user_id) {
+        Cart cart = cartRepo
+                .findById(cart_id).orElseThrow(
+                        ()->new IllegalStateException
+                                ("cart with id"+ cart_id + "does not exist"));
+        if(cart_id >0 && user_id >0
+                && !Objects.equals(cart.getId(), cart_id) && !Objects.equals(cart.getUserId(), user_id))
+        {
+            cart.setUserId(user_id);
+            cart.setId();
+        }
+    }
+    public void deleteCart(Long id) {
+        boolean id_exists = cartRepo.existsById(id);
+        if (!id_exists){
+            throw new IllegalStateException("cart with Id" + id + "does not exist");
+        }
+        cartRepo.deleteById(id);
     }
 }

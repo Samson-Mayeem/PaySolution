@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Table(name = "_cart")
 public class Cart {
     @Id
+    @SequenceGenerator(name = "cart_sequence", sequenceName = "cart", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "_cart_sequence")
     private Long CartId;
     private Long UserId;
@@ -31,5 +32,13 @@ public class Cart {
         UserId = userId;
     }
     public Cart() {
+    }
+
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "CartId=" + CartId +
+                ", UserId=" + UserId +
+                '}';
     }
 }

@@ -3,10 +3,11 @@ import com.markcommerce.scope.models.Product;
 import com.markcommerce.scope.repository.ProductRepo;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -29,12 +30,16 @@ public class ProductService {
     public Product getAProduct(String Name){
         return productRepo.findByName(Name).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found"));
     }
-    public void addProd(Product product) {
+    public void addProd(@RequestBody Product product) {
         Optional<Product> productOptional = productRepo.findById(product.getId());
         if (productOptional.isPresent()){
             throw new IllegalStateException("product already exists");
         }
-        productRepo.save(product);
+        try {
+            productRepo.save(product);
+        }catch (Exception e){
+            e.getCause();
+        }
         System.out.println(product);
     }
     public void deleteProduct(Long id, String name) {
@@ -44,6 +49,7 @@ public class ProductService {
         }
         productRepo.deleteById(id);
     }
+    @Transactional
     public void updateProduct(Long id, String name, String description, String imageUrl, BigDecimal price, int qty, Long categoryId) {
         Product product = productRepo.findById(id).orElseThrow(() -> new IllegalStateException("Product with id " + id + " does not exist"));
 

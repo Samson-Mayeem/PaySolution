@@ -1,6 +1,7 @@
 package com.markcommerce.scope.controllers;
 import com.markcommerce.scope.models.Cart;
 import com.markcommerce.scope.services.CartService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.Optional;
 public class CartController {
     private final CartService cartService;
 
+    @Autowired
     public CartController(CartService cartService) {
         this.cartService = cartService;
     }
@@ -23,7 +25,7 @@ public class CartController {
         return cartService.getCartByName(name);
     }
     @PostMapping
-    public void addCart(@PathVariable Cart cart){
+    public void addCart(@RequestBody Cart cart){
          cartService.addCart(cart);
     }
     @PutMapping(path={"cart_id","user_id"})
@@ -33,6 +35,10 @@ public class CartController {
 
     ){
         cartService.updateCart(cart_id, user_id );
+    }
+    @DeleteMapping(path = "{id}")
+    public  void deleteCategory(@PathVariable Long id){
+        cartService.deleteCart(id);
     }
 
 }
