@@ -1,10 +1,8 @@
 package com.markcommerce.scope.security;
 import javax.persistence.*;
 import com.markcommerce.scope.security.Enums.UserRole;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
-@Table
+@Table(name = "_users")
 @Entity
 public class Users {
     @Id

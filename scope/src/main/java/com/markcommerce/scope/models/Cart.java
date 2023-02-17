@@ -1,5 +1,6 @@
 package com.markcommerce.scope.models;
 
+
 import javax.persistence.*;
 
 

@@ -4,13 +4,13 @@ import com.markcommerce.scope.repository.CartRepo;
 import com.markcommerce.scope.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
+import java.util.List;
+
 @RestController
 @RequestMapping("api/secure/v1/products")
 public class ProductsController {
-    private ProductService productService;
+    private final ProductService productService;
     @Autowired
     public ProductsController(ProductService productService) {
         this.productService = productService;
@@ -19,10 +19,14 @@ public class ProductsController {
    public void SaveProd(@PathVariable Product product){
        productService.addProd(product);
    }
-    @GetMapping("{name}")
+   @GetMapping("{name}")
    public Product getProduct(@PathVariable("name") String name){
          return productService.getAProduct(name);
    }
+    @GetMapping
+    public List<Product> getProducts(){
+        return productService.getProducts();
+    }
     @DeleteMapping(path = "{id}")
     public  void userDelete(@PathVariable Long id, String Name){
         productService.deleteProduct(id, Name);

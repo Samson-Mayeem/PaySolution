@@ -20,6 +20,27 @@ public class Product {
     private BigDecimal Price;
     private int Qty;
     private Long CategoryId;
+    public Product(Long id, String name, String description, String imageUrl, BigDecimal price, int qty,
+                   Long categoryId) {
+        ProductId = id;
+        Name = name;
+        Description = description;
+        ImageUrl = imageUrl;
+        Price = price;
+        Qty = qty;
+        CategoryId = categoryId;
+    }
+    public Product(String name, String description, String imageUrl, BigDecimal price, int qty, Long categoryId) {
+        Name = name;
+        Description = description;
+        ImageUrl = imageUrl;
+        Price = price;
+        Qty = qty;
+        CategoryId = categoryId;
+    }
+
+    public Product() {
+    }
     public Long getId() {
         return ProductId;
     }
@@ -62,24 +83,5 @@ public class Product {
     public void setCategoryId(Long categoryId) {
         CategoryId = categoryId;
     }
-    public Product(Long id, String name, String description, String imageUrl, BigDecimal price, int qty,
-            Long categoryId) {
-        ProductId = id;
-        Name = name;
-        Description = description;
-        ImageUrl = imageUrl;
-        Price = price;
-        Qty = qty;
-        CategoryId = categoryId;
-    }
-    public Product(String name, String description, String imageUrl, BigDecimal price, int qty, Long categoryId) {
-        Name = name;
-        Description = description;
-        ImageUrl = imageUrl;
-        Price = price;
-        Qty = qty;
-        CategoryId = categoryId;
-    }
-    public Product() {
-    }
+
 }
