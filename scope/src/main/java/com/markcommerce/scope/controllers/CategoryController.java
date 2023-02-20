@@ -1,9 +1,9 @@
+/*
 package com.markcommerce.scope.controllers;
 import com.markcommerce.scope.models.Category;
 import com.markcommerce.scope.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Optional;
 
 
@@ -39,3 +39,4 @@ public class CategoryController {
         categoryService.updateCategory(id, name);
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package com.markcommerce.scope.services;
 import com.markcommerce.scope.models.Category;
 import com.markcommerce.scope.repository.CategoryRepo;
@@ -47,3 +48,4 @@ public class CategoryService {
         }
     }
 }
+*/

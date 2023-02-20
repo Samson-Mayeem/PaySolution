@@ -1,11 +1,12 @@
+/*
 package com.markcommerce.scope.models;
 import lombok.Data;
 
 import javax.persistence.*;
 
-
+@Data
 @Entity
-@Table(name = "_category")
+@Table
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "_category_sequence")
@@ -41,3 +42,4 @@ public class Category {
                 '}';
     }
 }
+*/

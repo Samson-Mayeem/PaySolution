@@ -1,11 +1,11 @@
+/*
 package com.markcommerce.scope.models;
-
-
+import lombok.Data;
 import javax.persistence.*;
 
-
+@Data
 @Entity
-@Table(name = "_cart")
+@Table
 public class Cart {
     @Id
     @SequenceGenerator(name = "cart_sequence", sequenceName = "cart", allocationSize = 1)
@@ -28,12 +28,8 @@ public class Cart {
         CartId = id;
         UserId = userId;
     }
-    public Cart(Long userId) {
-        UserId = userId;
-    }
     public Cart() {
     }
-
     @Override
     public String toString() {
         return "Cart{" +
@@ -42,3 +38,4 @@ public class Cart {
                 '}';
     }
 }
+*/

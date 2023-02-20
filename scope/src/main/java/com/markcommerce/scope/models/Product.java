@@ -1,18 +1,19 @@
 package com.markcommerce.scope.models;
-
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
-
-
-import lombok.Data;
-
 import javax.persistence.*;
 
+
 @Entity
-@Table(name = "_products")
+@Table
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "_products_sequence")
+    @SequenceGenerator(
+            name = "products_sequence",
+            sequenceName = "products_sequence",
+            allocationSize = 1)
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "products_sequence")
     private Long ProductId;
     private String Name;
     private String Description;

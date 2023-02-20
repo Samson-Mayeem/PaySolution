@@ -1,11 +1,13 @@
-package com.markcommerce.scope.configs;
+/*package com.markcommerce.scope.configs;
+import com.markcommerce.scope.models.Cart;
+import com.markcommerce.scope.repository.CartRepo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AppConfig {
-    /*@Bean
+    @Bean
     CommandLineRunner commandLineRunner(CartRepo cartRepo){
         return args ->{
             Cart mycart = new Cart(
@@ -13,5 +15,5 @@ public class AppConfig {
               1L
             );
         };
-    }*/
-}
+    }
+}*/

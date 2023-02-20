@@ -1,3 +1,4 @@
+/*
 package com.markcommerce.scope.services;
 import com.markcommerce.scope.models.Cart;
 import com.markcommerce.scope.repository.CartRepo;
@@ -25,8 +26,8 @@ public class CartService {
     public List<Cart> findCarts(){
         return cartRepo.findAll();
     }
-    public Optional<Cart> getCartByName(String name) {
-        return cartRepo.findByName(name);
+    public Optional<Cart> getCartById(String Name) {
+        return cartRepo.findById(Name);
 
     }
     public void updateCart(Long cart_id, Long user_id) {
@@ -49,3 +50,4 @@ public class CartService {
         cartRepo.deleteById(id);
     }
 }
+*/

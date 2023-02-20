@@ -2,8 +2,9 @@ package com.markcommerce.scope.security;
 import javax.persistence.*;
 import com.markcommerce.scope.security.Enums.UserRole;
 
-@Table(name = "_users")
+
 @Entity
+@Table
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
