@@ -1,15 +1,16 @@
-/*
 package com.markcommerce.scope.models;
+
+import jakarta.persistence.*;
 import lombok.Data;
-import javax.persistence.*;
+
 
 @Data
 @Entity
 @Table
 public class Cart {
-    @Id
     @SequenceGenerator(name = "cart_sequence", sequenceName = "cart", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "_cart_sequence")
+    @Id
     private Long CartId;
     private Long UserId;
     public Long getId() {
@@ -38,4 +39,3 @@ public class Cart {
                 '}';
     }
 }
-*/

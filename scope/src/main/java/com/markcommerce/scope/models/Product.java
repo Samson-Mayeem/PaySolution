@@ -1,6 +1,6 @@
 package com.markcommerce.scope.models;
+import jakarta.persistence.*;
 import java.math.BigDecimal;
-import javax.persistence.*;
 
 
 @Entity
@@ -21,7 +21,7 @@ public class Product {
     private BigDecimal Price;
     private int Qty;
     private Long CategoryId;
-    public Product(Long id, String name, String description, String imageUrl, BigDecimal price, int qty,
+    public Product(Long id, String name, String description, String imageUrl, BigDecimal price,int qty,
                    Long categoryId) {
         ProductId = id;
         Name = name;

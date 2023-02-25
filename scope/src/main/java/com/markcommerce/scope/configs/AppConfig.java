@@ -1,19 +1,27 @@
-/*package com.markcommerce.scope.configs;
+package com.markcommerce.scope.configs;
 import com.markcommerce.scope.models.Cart;
-import com.markcommerce.scope.repository.CartRepo;
+import com.markcommerce.scope.models.Product;
+import com.markcommerce.scope.product.ProductRepo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.math.BigDecimal;
+
 @Configuration
 public class AppConfig {
     @Bean
-    CommandLineRunner commandLineRunner(CartRepo cartRepo){
+    CommandLineRunner commandLineRunner(ProductRepo prodRepo){
         return args ->{
-            Cart mycart = new Cart(
+            Product myCart = new Product(
               1L,
-              1L
+              "Demo Name",
+                    "Demo Desc",
+                    "Demo Image",
+                    BigDecimal.valueOf(55.34),
+                    6,
+                    1L
             );
         };
     }
-}*/
+}
